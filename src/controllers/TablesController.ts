@@ -3,14 +3,12 @@ import { Client } from "pg";
 
 export default class GeoSqlController {
   public async index(request: Request, response: Response) {
-    const { database } = request.query;
-
     const client = new Client({
       host: "localhost",
       database: "geosql",
-      port: 5432,
+      port: 5433,
 
-      user: "admin",
+      user: "postgres",
       password: "123456"
     });
 

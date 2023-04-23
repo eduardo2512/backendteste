@@ -1,9 +1,13 @@
 import { Router } from "express";
-import GeoSqlController from "../controllers/GeoSqlController";
+import TablesController from "../controllers/TablesController";
+import GeoSqlController from "../controllers/GeoJsonController";
 
 const routes = Router();
+const tablesController = new TablesController();
 const geoSqlController = new GeoSqlController();
 
-routes.get("/databases", geoSqlController.index);
+routes.get("/tables", tablesController.index);
+
+routes.get("/geojson", geoSqlController.index);
 
 export default routes;
