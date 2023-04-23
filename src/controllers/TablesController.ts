@@ -15,7 +15,6 @@ export default class GeoSqlController {
     try {
       await client.connect();
 
-      // Retorna apenas as tabelas (para facilitar a indexação).
       const { rows: tables } = await client.query(
         `SELECT DISTINCT table_name as name FROM information_schema.columns WHERE table_schema = 'geodata' ORDER BY table_name;`
       );
